@@ -5,7 +5,12 @@ export const revalidate = 60; // Revalidação a nível de página
 export default async function Post({ params }: any) {
   const { id } = params;
 
-  const result = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+  const result = await fetch(
+    `https://rickandmortyapi.com/api/character/${id}`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
 
   const infos: Character = await result.json();
   const timestamp = new Date().toLocaleTimeString();
