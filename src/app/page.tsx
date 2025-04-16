@@ -7,13 +7,14 @@ interface Personagem {
 
 export const revalidate = false;
 
+let timestamp;
 async function BuscarPersonagens() {
   const res = await fetch("https://rickandmortyapi.com/api/character?page=1", {
     cache: "force-cache",
   });
 
   if (!res.ok) throw new Error("Erro ao buscar personagens");
-
+  timestamp = new Date().toLocaleTimeString();
   const dados = await res.json();
   return dados.results.slice(0, 10);
 }
@@ -32,8 +33,12 @@ export default async function Home() {
           <Link href={`/personCSR/${personagem.id}`}>
             <p>CSR</p>
           </Link>
+          <Link href={`/personISR/${personagem.id}`}>
+            <p>ISR</p>
+          </Link>
         </div>
       ))}
+      <p>Generated at:{timestamp}</p>
     </div>
   );
 }
