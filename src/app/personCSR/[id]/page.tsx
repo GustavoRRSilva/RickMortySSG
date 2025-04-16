@@ -20,7 +20,7 @@ export default function NewPage({ params }: { params: { id: string } }) {
       setInfos(resultado);
     }
     fetchData();
-  }, []);
+  }, [id]);
   if (!infos) {
     return <p>carregando...</p>;
   }

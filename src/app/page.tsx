@@ -5,6 +5,8 @@ interface Personagem {
   name: string;
 }
 
+export const revalidate = false;
+
 async function BuscarPersonagens() {
   const res = await fetch("https://rickandmortyapi.com/api/character?page=1", {
     cache: "force-cache",
