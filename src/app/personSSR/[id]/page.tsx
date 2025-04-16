@@ -1,6 +1,6 @@
 import { Character } from "@/types/types";
 
-export default async function Post({ params }: { params: { id: string } }) {
+export default async function Post({ params }: any) {
   const { id } = params;
 
   const result = await fetch(
@@ -11,13 +11,13 @@ export default async function Post({ params }: { params: { id: string } }) {
   );
 
   const infos: Character = await result.json();
-  console.log(infos);
+
   return (
     <div>
       <p>My Post: {id}</p>
-      <p>Name:{infos.name}</p>
-      <p>Specie:{infos.species}</p>
-      <p>Name:{infos.status}</p>
+      <p>Name: {infos.name}</p>
+      <p>Specie: {infos.species}</p>
+      <p>Status: {infos.status}</p>
     </div>
   );
 }
