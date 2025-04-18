@@ -3,3 +3,8 @@ export type Character = {
   status: string;
   species: string;
 };
+
+export type IDS = {
+  id1: string;
+  id2: string;
+};

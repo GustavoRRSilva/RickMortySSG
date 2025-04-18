@@ -38,6 +38,7 @@ export default async function Home() {
           </Link>
         </div>
       ))}
+      <Link href={"/RickAndMorty/1/2"}>Go to rick and morty page</Link>
       <p>Generated at:{timestamp}</p>
     </div>
   );
